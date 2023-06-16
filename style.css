@@ -114,27 +114,44 @@ html {
   flex-direction: column;
   width: 100%;
   background-color: #f6f5f3;
-  height: 150px;
+  max-height: 200px;
   border-radius: 5px;
   color: #242423;
-
   animation: fadeIn 1s ease-in;
 }
 .endorsement-box p {
   background-color: #f6f5f3;
   text-align: justify;
-  word-break: break-all;
-  overflow-y: scroll;
-  margin: 10px 2px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  margin: 05px 5px;
   font-weight: 200;
+  line-height: 1.2;
+  flex-grow: 1;
+  user-select: text;
 }
-.endorsement-box span {
+.detail-wrapper {
+  display: flex;
   background-color: #333533;
   color: aliceblue;
-  text-align: justify;
-  word-break: break-all;
-  overflow-y: scroll;
-  padding: 10px 2px 2px 2px;
+  justify-content: space-between;
+  padding: 10px 5px 5px 5px;
   font-weight: 800;
   border-radius: 4px 4px 0 0;
+}
+.love-wrapper {
+  display: flex;
+  justify-content: end;
+  padding: 5px 5px 5px 5px;
+  gap: 5px;
+  background-color: #242423;
+  color: aliceblue;
+}
+
+.love-wrapper i {
+  transition: 0.3s;
+}
+.love-wrapper i:hover {
+  scale: 1.21;
+  cursor: pointer;
 }
