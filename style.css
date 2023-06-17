@@ -25,6 +25,13 @@ html {
   align-items: center;
   margin: 50px auto 50px auto;
   padding: 0 10px 0 10px;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+  #app-wrapper {
+    box-shadow: 0 0 10px #14141471;
+  }
 }
 
 #header-wrapper {
@@ -114,10 +121,10 @@ html {
   flex-direction: column;
   width: 100%;
   background-color: #f6f5f3;
+  height: 150px;
   max-height: 200px;
   border-radius: 5px;
   color: #242423;
-  animation: fadeIn 1s ease-in;
 }
 .endorsement-box p {
   background-color: #f6f5f3;
@@ -148,10 +155,20 @@ html {
   color: aliceblue;
 }
 
-.love-wrapper i {
+.love-wrapper button {
   transition: 0.3s;
+  color: aliceblue;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
-.love-wrapper i:hover {
-  scale: 1.21;
+.love-wrapper button.loved {
+  color: #ee4266;
+}
+.love-wrapper button:hover {
+  scale: 1.31;
   cursor: pointer;
+}
+.love-wrapper span {
+  margin-top: 3px;
 }
