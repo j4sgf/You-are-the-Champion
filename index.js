@@ -21,6 +21,7 @@ const endorsementsInDB = ref(database, "endorsements");
 const publishBtn = document.getElementById("publish-btn");
 const endorsementEl = document.getElementById("endorsement-text");
 const fromEl = document.getElementById("input-from");
+const reqField = document.getElementById("required-endorsement");
 const toEl = document.getElementById("input-to");
 const endorsementBoxes = document.getElementById("endorsement-boxes");
 const loveStatus = JSON.parse(localStorage.getItem("loveArr"));
@@ -40,8 +41,13 @@ publishBtn.addEventListener("click", function () {
     to: toText,
     love: 0,
   };
-  push(endorsementsInDB, endorsementObj);
-  clearInputFields();
+  if (endorsementEl.value.length == 0 || toEl.value.length == 0) {
+    showAlert();
+  } else {
+    hideAlert();
+    push(endorsementsInDB, endorsementObj);
+    clearInputFields();
+  }
 });
 
 onValue(endorsementsInDB, function (snapshot) {
@@ -96,7 +102,6 @@ function renderText(endorsementArray) {
 
   endorsementBoxes.append(endorsementBox);
   addLove(endorsementBox, love, endorsementID);
-  //
 }
 
 function addLove(parent, love, id) {
@@ -129,4 +134,21 @@ function clearInputFields() {
   endorsementEl.value = null;
   toEl.value = null;
   fromEl.value = null;
+}
+
+function hideAlert() {
+  endorsementEl.classList.remove("required-alert");
+  toEl.classList.remove("required-alert");
+  reqField.style.display = "none";
+}
+
+function showAlert() {
+  endorsementEl.classList.add("required-alert");
+  toEl.classList.add("required-alert");
+  reqField.style.display = "block";
+  reqField.innerHTML = `<span>
+                        Please insert message and recepient
+                        </span>`;
+
+  return false;
 }

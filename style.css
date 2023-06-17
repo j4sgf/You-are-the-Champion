@@ -154,7 +154,6 @@ html {
   background-color: #242423;
   color: aliceblue;
 }
-
 .love-wrapper button {
   transition: 0.3s;
   color: aliceblue;
@@ -171,4 +170,12 @@ html {
 }
 .love-wrapper span {
   margin-top: 3px;
+}
+
+#required-endorsement {
+  font-size: x-small;
+  margin: 0;
+}
+.required-alert {
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.459);
 }
